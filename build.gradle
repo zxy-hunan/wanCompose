@@ -7,6 +7,10 @@ buildscript {
         viewModelComposeVersion = "1.0.0-alpha07"
         hiltComposeVersion = "1.0.0-alpha03"
         hiltCompilerVersion = "1.0.0"
+        retrofitVersion = "2.9.0"
+        gsonVersion = "2.8.6"
+        pagingVersion = "3.0.0-beta02"
+        pagingComposeVersion = "1.0.0-alpha11"
     }
     repositories {
         google()

@@ -5,8 +5,17 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.*
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.rememberPagerState
+import com.zxy_hunan.compose.acy.route.RouteName
+import com.zxy_hunan.compose.acy.widget.HomeSearchBar
+import com.zxy_hunan.compose.acy.widget.TextTabBar
+import kotlinx.coroutines.launch
 
+@ExperimentalPagerApi
 @Composable
 fun HomePage(
     navCtrl: NavHostController, scaffoldState: ScaffoldState,
@@ -18,7 +27,39 @@ fun HomePage(
 
     Column() {
 
+        HomeSearchBar(onUserIconClick = {
+            navCtrl.navigate(RouteName.ME) {
+                popUpTo(navCtrl.graph.findStartDestination().id) {
+                    saveState = true
+                }
+                launchSingleTop = true
+                restoreState = true
+            }
+        }, onSearchClick = {
+        }) {}
+        val pagerState = rememberPagerState(
+            pageCount = titles.size, initialPage = homeIndex,
+            initialOffscreenLimit = titles.size
+        )
+
+        TextTabBar(index = pagerState.currentPage, tabTexts = titles,
+        onTabSelected = {
+            scopeState.launch {
+                pagerState.scrollToPage(it)
+            }
+        })
+
+        HorizontalPager(state = pagerState, dragEnabled = false) {
+            page ->
+            onPageSelected(pagerState.currentPage)
+            when(page){
+
+            }
+        }
+
     }
+
+
 }
 
 

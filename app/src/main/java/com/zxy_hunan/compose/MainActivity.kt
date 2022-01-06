@@ -16,12 +16,17 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.zxy_hunan.compose.acy.route.RouteName
 import com.zxy_hunan.compose.acy.widget.BottomNavBarView
+import com.zxy_hunan.compose.ui.home.HomePage
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
 
+    @ExperimentalPagerApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -31,6 +36,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@ExperimentalPagerApi
 @Composable
 fun HomeScaffold(){
     /**NavController 是 Navigation 组件的中心 API。此 API 是有状态的，可以跟踪组成应用屏幕的可组合项的返回堆栈以及每个屏幕的状态。
@@ -63,6 +69,9 @@ fun HomeScaffold(){
             ){
                 //首页
                 composable(route = RouteName.HOME) {
+                    HomePage(navController,scaffoldState, homeIndex){
+                        homeIndex=it
+                    }
                 }
             }
         },snackbarHost = {

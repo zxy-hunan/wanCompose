@@ -3,8 +3,22 @@ package com.zxy_hunan.compose.entity
 import android.annotation.SuppressLint
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-class HttpBean {
-}
+
+data class BasicBean<T>(
+    var data: T?,
+    var errorCode: Int,
+    var errorMsg: String
+)
+
+data class ListWrapper<T>(
+    var curPage: Int,
+    var offset: Int,
+    var over: Boolean,
+    var pageCount: Int,
+    var size: Int,
+    var total: Int,
+    var datas: ArrayList<T>
+)
 @SuppressLint("ParcelCreator")
 @Parcelize
 data class Article(

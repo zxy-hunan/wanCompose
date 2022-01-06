@@ -31,6 +31,7 @@ import com.zxy_hunan.compose.acy.route.BottomNavRoute
 import com.zxy_hunan.compose.entity.TabTitle
 import com.zxy_hunan.compose.theme.SearchBarHeight
 import com.zxy_hunan.compose.theme.TabBarHeight
+import com.zxy_hunan.compose.ui.theme.white1
 
 @Composable
 fun BottomNavBarView(navCtrl: NavHostController) {
@@ -81,7 +82,7 @@ fun HomeSearchBar(
             .height(SearchBarHeight)
             .background(colorResource(id = R.color.purple_700))
     ) {
-        Image(painter = painterResource(id = R.mipmap.ic_icon), contentDescription = "User",
+        /*Image(painter = painterResource(id = R.mipmap.ic_icon), contentDescription = "User",
             contentScale = ContentScale.Crop, modifier = Modifier
                 .padding(start = 10.dp)
                 .width(28.dp)
@@ -90,23 +91,24 @@ fun HomeSearchBar(
                 .align(alignment = Alignment.CenterVertically)
                 .clickable {
                     onUserIconClick.invoke()
-                })
+                })*/
 
         Row(modifier = Modifier
             .padding(horizontal = 10.dp)
-            .height(25.dp)
+            .height(30.dp)
             .align(alignment = Alignment.CenterVertically)
             .weight(1f)
             .background(
                 color = colorResource(id = R.color.white),
-                shape = RoundedCornerShape(12.5.dp)
+                shape = RoundedCornerShape(5.dp)
             )
             .clickable { onSearchClick() }) {
             Icon(
                 painter = painterResource(id = R.mipmap.ic_search), contentDescription = "搜索",
+                tint = colorResource(id = R.color.purple_700),
                 modifier = Modifier
                     .size(25.dp)
-                    .padding(end = 10.dp)
+                    .padding(start =3.dp ,end = 10.dp)
                     .align(Alignment.CenterVertically)
             )
             Box(
@@ -119,6 +121,7 @@ fun HomeSearchBar(
 
         Icon(painter = painterResource(id = R.mipmap.ic_add),
             contentDescription = "发表",
+            tint = white1,
             modifier = Modifier
                 .size(34.dp)
                 .align(alignment = Alignment.CenterVertically)
