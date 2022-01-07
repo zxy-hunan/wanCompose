@@ -5,4 +5,5 @@ import androidx.lifecycle.ViewModel
 
 abstract class BaseVM<T> : ViewModel() {
     var list = mutableStateOf(mutableListOf<T>())
+    var currentListIndex = mutableStateOf(0)
 }

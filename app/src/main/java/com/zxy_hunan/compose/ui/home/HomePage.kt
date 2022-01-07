@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.*
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -13,8 +14,10 @@ import com.google.accompanist.pager.rememberPagerState
 import com.zxy_hunan.compose.acy.route.RouteName
 import com.zxy_hunan.compose.acy.widget.HomeSearchBar
 import com.zxy_hunan.compose.acy.widget.TextTabBar
+import com.zxy_hunan.compose.ui.home.recommend.RecommendPage
 import kotlinx.coroutines.launch
 
+@ExperimentalComposeUiApi
 @ExperimentalPagerApi
 @Composable
 fun HomePage(
@@ -53,7 +56,7 @@ fun HomePage(
             page ->
             onPageSelected(pagerState.currentPage)
             when(page){
-
+            0 -> RecommendPage(navCtrl = navCtrl, scaffoldState = scaffoldState){}
             }
         }
 
