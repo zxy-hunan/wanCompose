@@ -20,4 +20,8 @@ class HomeVM @Inject constructor(): BaseVM<TabTitle>() {
     override fun onCleared() {
         super.onCleared()
     }
+
+    override fun start() {
+
+    }
 }

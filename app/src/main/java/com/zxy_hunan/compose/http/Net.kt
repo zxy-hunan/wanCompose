@@ -25,7 +25,7 @@ object Net {
                 .client(okHttp)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .baseUrl("")
+                .baseUrl("https://www.wanandroid.com")
                 .build()
                 .create(HttpService::class.java)
         }

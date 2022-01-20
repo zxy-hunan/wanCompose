@@ -11,12 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.placeholder.material.placeholder
+import com.zxy_hunan.compose.R
 import com.zxy_hunan.compose.ui.theme.Purple700
 import com.zxy_hunan.compose.ui.theme.grey3
 import com.zxy_hunan.compose.ui.theme.white1
@@ -34,7 +36,7 @@ fun LabelTextButton(
         modifier = modifier
             .height(25.dp)
             .clip(shape = RoundedCornerShape(cornerCalue))
-            .background(color = Purple700)
+            .background(color = colorResource(id = R.color.purple_700))
             .padding(horizontal = 10.dp, vertical = 3.dp)
             .combinedClickable(enabled = !isLoding,
                 onClick = { onClick?.invoke() },

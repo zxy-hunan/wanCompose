@@ -107,8 +107,8 @@ fun HomeSearchBar(
                 painter = painterResource(id = R.mipmap.ic_search), contentDescription = "搜索",
                 tint = colorResource(id = R.color.purple_700),
                 modifier = Modifier
-                    .size(25.dp)
-                    .padding(start =3.dp ,end = 10.dp)
+                    .size(30.dp)
+                    .padding(start =5.dp ,end = 10.dp)
                     .align(Alignment.CenterVertically)
             )
             Box(

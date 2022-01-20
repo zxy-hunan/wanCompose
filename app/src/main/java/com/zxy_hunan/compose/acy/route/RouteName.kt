@@ -5,4 +5,6 @@ object RouteName {
     const val MOVIE="movie"
     const val CHAT="chat"
     const val ME="me"
+
+    const val STRUCTURE_LIST = "structure_list"
 }

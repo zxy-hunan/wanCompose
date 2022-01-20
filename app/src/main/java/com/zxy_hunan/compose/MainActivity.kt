@@ -3,11 +3,13 @@ package com.zxy_hunan.compose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.navigation.compose.NavHost
@@ -25,7 +27,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-
+    @ExperimentalComposeUiApi
     @ExperimentalPagerApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@ExperimentalComposeUiApi
 @ExperimentalPagerApi
 @Composable
 fun HomeScaffold(){
@@ -63,7 +66,7 @@ fun HomeScaffold(){
             var categoryIndex = remember { 0 }
 
             NavHost(
-                modifier = Modifier.background(color = colorResource(id = R.color.orange)),
+                modifier = Modifier.background(color = colorResource(id = R.color.white)),
                 navController = navController,
                 startDestination = RouteName.HOME
             ){

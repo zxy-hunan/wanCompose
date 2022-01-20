@@ -24,7 +24,7 @@ fun RecommendPage(
     viewModel: RecommendVM = hiltViewModel(),
     onScrollChangeListener: (position: Int) -> Unit
 ) {
-    viewModel.refresh()
+    viewModel.start()
     val recommendData=viewModel.pagingData.value?.collectAsLazyPagingItems()
     val isLoaded=recommendData?.loadState?.prepend?.endOfPaginationReached?:false
     val currentPosition by remember {viewModel.currentListIndex}
