@@ -21,7 +21,7 @@ import kotlin.math.max
 
 @Composable
 fun MediumTitle(
-    title: String, modifier: Modifier, color: Color = black3,
+    title: String, modifier: Modifier = Modifier, color: Color = black3,
     textAlign: TextAlign = TextAlign.Start, isLoading: Boolean = false
 ) {
     Title(
