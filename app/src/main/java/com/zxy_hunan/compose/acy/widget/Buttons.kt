@@ -80,6 +80,12 @@ fun PrimaryButton(text: String,modifier: Modifier=Modifier,onClick: (() -> Unit)
     SampleButton(text = text,onClick = onClick)
 }
 
+@Composable
+fun SecondlyButton(text: String,modifier: Modifier=Modifier,onClick: () -> Unit){
+    SampleButton(text = text, modifier = modifier,
+    textColor = black3,onClick = onClick)
+}
+
 
 @Composable
 fun InfoDialog(title:String="信息",vararg content:String,onDismiss:() -> Unit){
@@ -96,8 +102,9 @@ fun InfoDialog(title:String="信息",vararg content:String,onDismiss:() -> Unit)
     },confirmButton = {
             TextContent(
                 text = "关闭",
-                modifier = Modifier.padding(end = 18.dp, bottom = 18.dp)
-                    .clickable{(onDismiss.invoke())}
+                modifier = Modifier
+                    .padding(end = 18.dp, bottom = 18.dp)
+                    .clickable { (onDismiss.invoke()) }
             )
         })
 }
